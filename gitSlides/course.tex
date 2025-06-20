@@ -1,0 +1,200 @@
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage[english]{babel}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{trace}
+\usepackage[scriptsize]{caption}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,calc}
+
+\usetheme{Boadilla}
+
+%\setbeamertemplate{footline}
+%{
+%  \leavevmode
+%  \hbox{
+%    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}
+%      \usebeamerfont{author in head/foot}\insertshortauthor \hfill \inserttitle
+%    \end{beamercolorbox}
+%    \begin{beamercolorbox}[wd=.48\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+%      \usebeamerfont{title in head/foot}\insertshortdate \hfill \insertframenumber{}/\inserttotalframenumber
+%    \end{beamercolorbox}
+%  }
+%  \vskip0pt
+%}
+
+\definecolor{lgray}{rgb}{0.8,0.8,0.8}
+\definecolor{dgreen}{rgb}{0.0,0.8,0.0}
+
+\lstset{breakatwhitespace,
+language=C,
+backgroundcolor=\color{lgray},
+%columns=fullflexible,
+keepspaces,
+breaklines,
+tabsize=3, 
+frame=shadowbox,
+basicstyle=\ttfamily\fontsize{5}{6}\selectfont,
+showstringspaces=false,
+keywordstyle=\color{blue},
+commentstyle=\color{dgreen},
+extendedchars=true}
+
+\setbeamercovered{transparent}
+
+\begin{document}
+\title[\today]{Git: Main Concepts}
+\author{Mirko Mariotti}
+\date{\today}
+
+\begin{frame}
+{
+    \includegraphics[width=0.2\textwidth]{mi.png}  
+    \hfill
+    \includegraphics[width=0.7\textwidth]{iscs.png}
+}
+\titlepage
+\end{frame}
+
+% \begin{frame}\frametitle{Contents}
+% \fontsize{6}{7.2}\selectfont
+% \tableofcontents
+% \end{frame} 
+
+\section{Introduction}
+
+\subsection{What is Git ?}
+
+\begin{frame}\frametitle{What is Git ?}
+\begin{itemize}
+	\item Git is a distributed version control system.
+	\item It is used to track changes in source code during software development.
+	\item It allows multiple developers to work on a project simultaneously without conflicts.
+	\item Git is designed to handle everything from small to very large projects with speed and efficiency.
+\end{itemize}
+\end{frame}
+
+\subsection{Basic Concepts}
+
+\begin{frame}\frametitle{Basic Concepts}\framesubtitle{Setting up a working directory: Repository, Init, Clone}
+\begin{itemize}
+	\item<1-> \textbf{Repository (repo)}: A directory that contains all the files and history of a project.
+	\vspace{0.2cm}
+	\item<2-> \textbf{Init}: The command to create a new Git repository.
+	\vspace{0.2cm}
+	\item<3-> \textbf{Clone}: A copy of a repository that is stored on your local machine.
+\end{itemize}
+
+\only<2->{
+\begin{alertblock}{Initialize a repository}
+cd some-empty-directory \\
+git init
+\end{alertblock}
+}
+
+\vspace{0.5cm}
+
+\only<3->{
+\begin{alertblock}{Clone a repository}
+git clone https://github.com/FPGA-course-2025/day1.git
+\end{alertblock}
+}
+
+\end{frame}
+
+\begin{frame}\frametitle{Basic Concepts}\framesubtitle{Working inside a repository: Add, Commit, Status}
+\begin{itemize}
+	\item<1-> \textbf{Add}: Stages changes in the working directory for the next commit.
+	\vspace{0.2cm}
+	\item<2-> \textbf{Commit}: Saves the staged changes to the repository with a message describing the changes.
+	\vspace{0.2cm}
+	\item<3-> \textbf{Status}: Displays the state of the working directory and staging area.
+\end{itemize}
+\only<1->{
+\begin{alertblock}{Stage changes}
+git add file1 file2 ...
+\end{alertblock}
+}	
+\only<2->{
+\begin{alertblock}{Commit changes}
+git commit -m "Commit message"
+\end{alertblock}
+}
+\only<3->{
+\begin{alertblock}{Check status}
+git status
+\end{alertblock}
+}
+\end{frame}
+
+\begin{frame}\frametitle{Basic Concepts}\framesubtitle{Working with branches: Branch, Checkout, Merge}
+\begin{itemize}
+	\item<1-> \textbf{Branch}: A separate line of development in a repository.
+	\vspace{0.2cm}
+	\item<2-> \textbf{Checkout}: Switches to a different branch or	 restores working tree files.
+	\vspace{0.2cm}
+	\item<3-> \textbf{Merge}: Combines changes from one branch into another.
+\end{itemize}
+\only<1->{
+\begin{alertblock}{Create a new branch}
+git branch new-branch
+\end{alertblock}
+}
+\only<2->{
+\begin{alertblock}{Switch to a branch}
+git checkout new-branch
+\end{alertblock}
+}
+\only<3->{
+\begin{alertblock}{Merge branches}
+git merge branch-to-merge
+\end{alertblock}
+}
+\end{frame}
+
+\begin{frame}\frametitle{Basic Concepts}\framesubtitle{Remote repositories: Remote, Push, Pull}
+\begin{itemize}
+	\item<1-> \textbf{Remote}: A version of the repository that is hosted on a server.
+	\vspace{0.2cm}
+	\item<2-> \textbf{Push}: Uploads local changes to a remote repository.
+	\vspace{0.2cm}
+	\item<3-> \textbf{Pull}: Fetches changes from a remote repository and merges them into the local repository.
+\end{itemize}
+\only<1->{
+\begin{alertblock}{Add a remote repository}
+git remote add origin remote-repo-url (automatically created when cloning)
+\end{alertblock}
+}
+\only<2->{
+\begin{alertblock}{Push changes to remote}
+git push origin branch-name (or git push)
+\end{alertblock}
+}
+\only<3->{
+\begin{alertblock}{Pull changes from remote}
+git pull origin branch-name (or git pull)
+\end{alertblock}
+}
+\end{frame}
+
+\begin{frame}\frametitle{github}\framesubtitle{GitHub: A popular platform for hosting Git repositories}
+\begin{itemize}
+	\item GitHub is a web-based platform that provides hosting for Git repositories.
+	\item It offers features like issue tracking, pull requests, and collaboration tools.
+	\item GitHub allows developers to share their code, collaborate on projects, and contribute to open-source software.
+	\item It provides a user-friendly interface for managing repositories and viewing commit history.
+\end{itemize}
+
+\begin{alertblock}{GitHub Organization for this course}
+\begin{center}
+\url{https://github.com/FPGA-course-2025}
+\end{center}
+\end{alertblock}
+\end{frame}
+
+\end{document}
