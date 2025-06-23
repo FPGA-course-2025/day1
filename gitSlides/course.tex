@@ -83,103 +83,93 @@ extendedchars=true}
 
 \begin{frame}\frametitle{Basic Concepts}\framesubtitle{Setting up a working directory: Repository, Init, Clone}
 \begin{itemize}
-	\item<1-> \textbf{Repository (repo)}: A directory that contains all the files and history of a project.
+	\item \textbf{Repository (repo)}: A directory that contains all the files and history of a project.
 	\vspace{0.2cm}
-	\item<2-> \textbf{Init}: The command to create a new Git repository.
+	\item \textbf{Init}: The command to create a new Git repository.
 	\vspace{0.2cm}
-	\item<3-> \textbf{Clone}: A copy of a repository that is stored on your local machine.
+	\item \textbf{Clone}: A copy of a repository that is stored on your local machine.
 \end{itemize}
 
-\only<2->{
 \begin{alertblock}{Initialize a repository}
 cd some-empty-directory \\
 git init
 \end{alertblock}
-}
 
 \vspace{0.5cm}
 
-\only<3->{
 \begin{alertblock}{Clone a repository}
 git clone https://github.com/FPGA-course-2025/day1.git
 \end{alertblock}
-}
 
 \end{frame}
 
 \begin{frame}\frametitle{Basic Concepts}\framesubtitle{Working inside a repository: Add, Commit, Status}
 \begin{itemize}
-	\item<1-> \textbf{Add}: Stages changes in the working directory for the next commit.
+	\item \textbf{Add}: Stages changes in the working directory for the next commit.
 	\vspace{0.2cm}
-	\item<2-> \textbf{Commit}: Saves the staged changes to the repository with a message describing the changes.
+	\item \textbf{Commit}: Saves the staged changes to the repository with a message describing the changes.
 	\vspace{0.2cm}
-	\item<3-> \textbf{Status}: Displays the state of the working directory and staging area.
+	\item \textbf{Status}: Displays the state of the working directory and staging area.
 \end{itemize}
-\only<1->{
+
 \begin{alertblock}{Stage changes}
 git add file1 file2 ...
 \end{alertblock}
-}	
-\only<2->{
+
 \begin{alertblock}{Commit changes}
 git commit -m "Commit message"
 \end{alertblock}
-}
-\only<3->{
+
 \begin{alertblock}{Check status}
 git status
 \end{alertblock}
-}
+
 \end{frame}
 
 \begin{frame}\frametitle{Basic Concepts}\framesubtitle{Working with branches: Branch, Checkout, Merge}
 \begin{itemize}
-	\item<1-> \textbf{Branch}: A separate line of development in a repository.
+	\item \textbf{Branch}: A separate line of development in a repository.
 	\vspace{0.2cm}
-	\item<2-> \textbf{Checkout}: Switches to a different branch or	 restores working tree files.
+	\item \textbf{Checkout}: Switches to a different branch or	 restores working tree files.
 	\vspace{0.2cm}
-	\item<3-> \textbf{Merge}: Combines changes from one branch into another.
+	\item \textbf{Merge}: Combines changes from one branch into another.
 \end{itemize}
-\only<1->{
+
 \begin{alertblock}{Create a new branch}
 git branch new-branch
 \end{alertblock}
-}
-\only<2->{
+
 \begin{alertblock}{Switch to a branch}
 git checkout new-branch
 \end{alertblock}
-}
-\only<3->{
+
 \begin{alertblock}{Merge branches}
 git merge branch-to-merge
 \end{alertblock}
-}
+
 \end{frame}
 
 \begin{frame}\frametitle{Basic Concepts}\framesubtitle{Remote repositories: Remote, Push, Pull}
 \begin{itemize}
-	\item<1-> \textbf{Remote}: A version of the repository that is hosted on a server.
+	\item \textbf{Remote}: A version of the repository that is hosted on a server.
 	\vspace{0.2cm}
-	\item<2-> \textbf{Push}: Uploads local changes to a remote repository.
+	\item \textbf{Push}: Uploads local changes to a remote repository.
 	\vspace{0.2cm}
-	\item<3-> \textbf{Pull}: Fetches changes from a remote repository and merges them into the local repository.
+	\item \textbf{Pull}: Fetches changes from a remote repository and merges them into the local repository.
 \end{itemize}
-\only<1->{
+
 \begin{alertblock}{Add a remote repository}
 git remote add origin remote-repo-url (automatically created when cloning)
 \end{alertblock}
-}
-\only<2->{
+
 \begin{alertblock}{Push changes to remote}
 git push origin branch-name (or git push)
 \end{alertblock}
-}
-\only<3->{
+
 \begin{alertblock}{Pull changes from remote}
 git pull origin branch-name (or git pull)
 \end{alertblock}
-}
+
 \end{frame}
 
 \begin{frame}\frametitle{github}\framesubtitle{GitHub: A popular platform for hosting Git repositories}
